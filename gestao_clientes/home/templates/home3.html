@@ -24,6 +24,11 @@
                 <a href="{% url 'login' %}" class="btn btn-info">Entrar</a>
             {% endif %}
         </div>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Enviar</button>
+        </form>
     </div>
 
 {% endblock %}
