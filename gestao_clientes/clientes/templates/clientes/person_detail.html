@@ -1,0 +1,13 @@
+<h1>Person Detail</h1>
+{{ object.first_name }}
+{{ object.last_name }}
+<br>
+{{ object.age }}
+<br>
+{{ object.salary }}
+<br>
+<img src="{{ object.photo }}">
+<br>
+{{ now }}
+<br>
+<a href="{% url 'person_update_cbv' person.id %}">Editar</a>
