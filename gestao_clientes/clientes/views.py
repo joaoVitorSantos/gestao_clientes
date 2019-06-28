@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.utils import timezone
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from .models import Person
 from .forms import PersonForm
@@ -71,3 +71,11 @@ class PersonUpdate(UpdateView):
     model = Person
     fields = ['first_name', 'last_name', 'age', 'salary', 'bio', 'photo', 'doc']
     success_url = reverse_lazy("person_list_cbv")
+
+
+class PersonDelete(DeleteView):
+    model = Person
+    # success_url = reverse_lazy('person_list_cbv')
+
+    def get_success_url(self):
+        return reverse_lazy('person_list_cbv')
