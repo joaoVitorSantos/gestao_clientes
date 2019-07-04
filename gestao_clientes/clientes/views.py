@@ -1,5 +1,3 @@
-
-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
@@ -13,7 +11,8 @@ from .forms import PersonForm
 @login_required
 def persons_list(request):
     persons = Person.objects.all()
-    return render(request, 'person.html', {'persons': persons})
+    footer_message = "Desenvolvimento web com Django 2.0.1"
+    return render(request, 'person.html', {'persons': persons, 'footer_message': footer_message})
 
 
 @login_required
